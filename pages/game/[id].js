@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-import { Inter } from "next/font/google";
-import {useRouter} from 'next/router';
-const inter = Inter({ subsets: ["latin"] });
+import { useRouter } from "next/router";
+// import { db } from "../../lib/db";
 
 export default function Home() {
   const router = useRouter();
@@ -10,14 +9,14 @@ export default function Home() {
 
   useEffect(() => {
     async function getPageData() {
-      const apiUrlEndpoint = "http://localhost:3000/api/getdata-lib";
+      const apiUrlEndpoint = "http://localhost:3000/api/game";
       const postData = {
-        method: "Post",
-        headers: {"Content-Type": "application/json"},
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           id: id,
         }),
-      }
+      };
       const response = await fetch(apiUrlEndpoint, postData);
       const res = await response.json();
       // console.log(res.games);
@@ -27,14 +26,14 @@ export default function Home() {
   }, [router.query.id, router.isReady, id]);
   return (
     <div className="home">
-      {dataResponse.map((game) => {
-        return <div key={game.id}>{game.name} {game.description} {id}</div>;
+      {dataResponse?.map((game) => {
+        return (
+          <div key={game.id}>
+            {game.name} <br/>{game.description} {""}
+          </div>
+        );
       })}
       ;<h1>Test</h1>
     </div>
   );
-
-  // const app = express();
-  // const db = require('../lib/db');
-  
 }

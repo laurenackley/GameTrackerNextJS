@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Game Tracker</title>
+<script type="text/javascript" src="js/script.js"></script>
+</head>
+<body>
+<h1>Games Available!</h1>
+<div id="gameName"></div>
+
+<div id="gameList" style="display:none">
+<br>
+<br>
+<h3 id="name"></h3>
+<p id="description"></p>
+<p id="playerMin"></p>
+<p id="playerMax"></p>
+<div id= "deleteButton"></div>
+<div id="updateGameDiv">
+<form name="updateGame">
+   <label for="name">Updated Name:</label><input type="text" name="name"><br>
+    <label for="description">Updated Description:</label><textarea rows="4" cols="50" name="description"></textarea><br>
+    <label for="playerMin">Updated Player Minimum:</label><input type="number" name="playerMin"><br>
+    <label for="playerMax">Updated Player Maximum:</label><input type="number" name="playerMax"><br>
+    </form>
+<div id="updateButton"></div>
+</div>
+</div>
+
+<div id ="gameListDetails"></div>
+
+<form name="createGame">
+<br>
+<br>
+<h1>Create a Game:</h1>
+    <label for="name">Name:</label><input type="text" name="name"><br>
+    <label for="description">Description:</label><textarea rows="4" cols="50" placeholder="Put the game description here"
+    name="description"></textarea><br>
+    <label for="playerMin">Player Minimum:</label><input type="number" name="playerMin"><br>
+    <label for="playerMax">Player Maximum:</label><input type="number" name="playerMax"><br>
+    <button name="create">Add Game</button>
+
+</form>
+
+<div id="searchKeywordDiv">
+We found the following games with that word in the description:
+<h3 id="name"></h3>
+<p id="description"></p>
+<p id="playerMin"></p>
+<p id="playerMax"></p>
+<br>
+<form name="searchKeyword">
+<label for="keyword">Search for a game by keyword:</label>
+<input type="text" name="keyword">
+<button name="search">Search</button>
+</form>
+</div>
+
+<div id="organize">
+<h2>The Game with the longest description is: </h2>
+<h3>The length of the description is: </h3>
+</div>
+</body>
+</html>
