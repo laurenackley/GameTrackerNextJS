@@ -7,7 +7,7 @@ export default function ListAllGames() {
 
   useEffect(() => {
     async function getPageData() {
-      const apiUrlEndpoint = "http://localhost:3000/api/games";
+      const apiUrlEndpoint = "http://localhost:8085";
       const getData = {
         method: "GET",
         headers: { "Content-Type": "application/json" },
