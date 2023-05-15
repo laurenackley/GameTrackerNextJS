@@ -6,36 +6,24 @@ export default function AddGame() {
   // const [games, setGames] = useState({});
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
-  const [playerMinimum, setPlayerMinimum] = useState("");
-  const [playerMaximum, setPlayerMaximum] = useState("");
+  const [playerMin, setPlayerMin] = useState("");
+  const [playerMax, setPlayerMax] = useState("");
 
   const [isPending, setIsPending] = useState(false);
 
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const game = { name, description, playerMinimum, playerMaximum };
+    const game = { name, description, playerMin, playerMax};
     setIsPending(true);
     fetch("http://localhost:8085/api/games/", {
       method: "POST",
       headers: {
         "Content-type": "application/json"},
       body: JSON.stringify(game)
-      // {
-      //   name: "name",
-      //   description: "description",
-      //   player_minimum: "playerMinimum",
-      //   player_maximum: "playerMaximum",
-      // }
-      ,
     })
       .then((res) => res.json())
       .then(() => {
-        // setGames((games) => [game, ...games]);
-        // setName("");
-        // setDescription("");
-        // setPlayerMinimum("");
-        // setPlayerMaximum("");
         console.log("added new game");
         setIsPending(false);
       })
@@ -59,14 +47,14 @@ export default function AddGame() {
         <label>Player Minimum:</label>
         <input type="number" 
         required
-        value={playerMinimum}
-        onChange={(e) => setPlayerMinimum(e.target.value)}
+        value={playerMin}
+        onChange={(e) => setPlayerMin(e.target.value)}
         />
         <label>Player Maximum:</label>
         <input type="number" 
         required
-        value={playerMaximum}
-        onChange={(e) => setPlayerMaximum(e.target.value)}
+        value={playerMax}
+        onChange={(e) => setPlayerMax(e.target.value)}
         />
         {/* <button type="submit" onSubmit={handleSubmit}>
           Submit
